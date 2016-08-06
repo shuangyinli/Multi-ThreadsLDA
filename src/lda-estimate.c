@@ -72,6 +72,7 @@ void save_gamma(char* filename, corpus* corpus, int num_topics)
 }
 
  void* thread_inference(void* thread_data){
+    int i;
     pthread_t tid;
     tid = pthread_self();
     Thread_Data* thread_data_ptr = (Thread_Data*) thread_data;
@@ -80,7 +81,7 @@ void save_gamma(char* filename, corpus* corpus, int num_topics)
     int end = thread_data_ptr->end;
     lda_model *model = thread_data_ptr->model;
 
-    for (int i = start; i < end; i++) {
+    for (i = start; i < end; i++) {
          doc_e_step(&corpus->docs[i], model);
     }
     printf("thread %u is over with %d documents. \n", (unsigned int)tid, end - start);
