@@ -22,7 +22,7 @@
 corpus* read_data(char* data_filename, int numtopics)
 {
     FILE *fileptr;
-    int length, count, word, n, nd, nw;
+    int length, count, word, n, nd, nw, k;
     corpus* c;
 
     printf("reading data from %s\n", data_filename);
@@ -56,11 +56,11 @@ corpus* read_data(char* data_filename, int numtopics)
 	}
     
     for(n = 0; n < length; n++){
-        for(int k=0; k< numtopics; k++){
+        for(k=0; k< numtopics; k++){
         c->docs[nd].doc_phi[n][k] = 1.0/numtopics;
     }
     }
-    for(int k=0; k< numtopics; k++){
+    for(k=0; k< numtopics; k++){
         c->docs[nd].doc_gamma[k] = 1.0/ numtopics;
     }
 	nd++;
