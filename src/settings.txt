@@ -1,0 +1,6 @@
+var max iter 20
+var convergence 1e-6
+em max iter 100
+em convergence 1e-4
+num of threads 10
+alpha fixed
